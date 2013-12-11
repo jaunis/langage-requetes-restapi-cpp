@@ -1,0 +1,3 @@
+Prérequis
+=========
+tests unitaires: libboost-dev (suggestion : plugin Eclipse CUTE)

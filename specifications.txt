@@ -1,0 +1,6 @@
+Exemple de requête
+==================
+
+SELECT extensions.number FROM users->lines JOIN lines ON users->line.line_id = lines.id JOIN lines->extension ON lines.id = lines->extension.line_id JOIN extensions ON lines->extension.extension_id = extensions.id WHERE extensions.number = 1234;
+
+
