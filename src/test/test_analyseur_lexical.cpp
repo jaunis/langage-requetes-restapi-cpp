@@ -14,3 +14,11 @@ BOOST_AUTO_TEST_CASE(divisier_en_lexemes) {
     list<string> attenduList(attendu, attendu + sizeof attendu/sizeof attendu[0]);
     BOOST_CHECK_EQUAL_COLLECTIONS(resultat.begin(), resultat.end(), attenduList.begin(), attenduList.end());
 }
+
+BOOST_AUTO_TEST_CASE(divisier_en_lexemes_virgules) {
+    AnalyseurLexical analyseur;
+    list<string>& resultat = analyseur.diviser_en_lexemes("select mac, ip,id from devices");
+    string attendu[] = {"select", "mac", ",", "ip", ",", "id", "from", "devices"};
+    list<string> attenduList(attendu, attendu + sizeof attendu/sizeof attendu[0]);
+    BOOST_CHECK_EQUAL_COLLECTIONS(resultat.begin(), resultat.end(), attenduList.begin(), attenduList.end());
+}
