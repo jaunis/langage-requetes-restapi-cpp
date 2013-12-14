@@ -8,6 +8,8 @@
 #include "AnalyseurLexical.hpp"
 #include <sstream>
 
+namespace analyseurs {
+
 AnalyseurLexical::AnalyseurLexical()
 {
     // TODO Auto-generated constructor stub
@@ -38,4 +40,5 @@ list<string>& AnalyseurLexical::diviser_en_lexemes(string requete) {
             resultat.push_back(sousLexeme);
     }
     return resultat;
+}
 }

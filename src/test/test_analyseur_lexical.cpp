@@ -1,11 +1,12 @@
-#define BOOST_TEST_MODULE TestAnalyseurLexical
+//#define BOOST_TEST_MODULE TestAnalyseurLexical
 #define BOOST_TEST_DYN_LINK
-#include <boost/test/included/unit_test.hpp>
+#include <boost/test/unit_test.hpp>
 #include <list>
 #include <string>
 #include "../main/AnalyseurLexical.hpp"
 
 using namespace std;
+using namespace analyseurs;
 
 BOOST_AUTO_TEST_CASE(divisier_en_lexemes) {
     AnalyseurLexical analyseur;

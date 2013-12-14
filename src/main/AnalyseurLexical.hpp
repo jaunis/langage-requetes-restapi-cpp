@@ -13,11 +13,15 @@
 
 using namespace std;
 
+namespace analyseurs {
+
 class AnalyseurLexical {
 public:
     AnalyseurLexical();
     virtual ~AnalyseurLexical();
     list<string>& diviser_en_lexemes(string);
 };
+
+}
 
 #endif /* ANALYSEURLEXICAL_HPP_ */
