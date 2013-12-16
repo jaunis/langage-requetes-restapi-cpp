@@ -10,11 +10,11 @@ using namespace analyseurs;
 
 BOOST_AUTO_TEST_CASE(test_creer_requete) {
     AnalyseurSyntaxique analyseur;
-    string lexemes[] = {"select", "mac", ",", "ip", "from", "devices"};
+    string lexemes[] = {"select", "*", "from", "devices"};
     list<string> listeLexemes(lexemes, lexemes + sizeof lexemes/sizeof lexemes[0]);
     Requete requete = analyseur.creerRequete(listeLexemes);
     BOOST_CHECK_EQUAL("devices", requete.accCible());
-    string projection[] = {"mac", "ip"};
+    string projection[] = {"*"};
 //    list<string> listeProjection(projection, projection + sizeof projection/sizeof projection[0]);
     BOOST_CHECK_EQUAL_COLLECTIONS(projection, projection + sizeof projection/sizeof projection[0], requete.accProjection().begin(), requete.accProjection().end());
 }

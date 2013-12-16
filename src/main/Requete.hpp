@@ -7,6 +7,7 @@
 
 #include <string>
 #include <list>
+#include "AnalyseurSyntaxique.hpp"
 
 #ifndef REQUETE_H_
 #define REQUETE_H_
@@ -17,6 +18,7 @@ class Requete {
 private:
     string cible;
     list<string>& projection;
+    friend analyseurs::AnalyseurSyntaxique;
 public:
     Requete();
     virtual ~Requete();

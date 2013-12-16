@@ -1,26 +1,25 @@
-/*
- * AnalyseurSyntaxique.h
- *
- *  Created on: 14 déc. 2013
- *      Author: jean
- */
-
 #include <string>
 #include <list>
-#include "Requete.hpp"
 
 #ifndef ANALYSEURSYNTAXIQUE_H_
 #define ANALYSEURSYNTAXIQUE_H_
+
+class Requete;
 
 using namespace std;
 
 namespace analyseurs {
 
 class AnalyseurSyntaxique {
+private:
+    enum Etat {DEBUT, PROJECTION, FROM, CIBLE, FIN};
+    Etat etat;
+
 public:
     AnalyseurSyntaxique();
     virtual ~AnalyseurSyntaxique();
     Requete& creerRequete(list<string>);
+
 };
 
 }
