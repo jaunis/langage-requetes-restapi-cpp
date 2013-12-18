@@ -9,17 +9,26 @@ class Requete;
 using namespace std;
 
 namespace analyseurs {
+class ErreurSyntaxe : public exception {
+public:
+    ErreurSyntaxe(string message, string complement="");
+    virtual ~ErreurSyntaxe() throw ();
+    virtual const char * what() const throw ();
+
+private:
+    string message;
+};
 
 class AnalyseurSyntaxique {
 private:
-    enum Etat {DEBUT, PROJECTION, FROM, CIBLE, FIN};
+    enum Etat {DEBUT, PROJECTION_DEBUT, PROJECTION_VIRGULE, FROM, CIBLE, FIN};
     Etat etat;
+    //list<string>::iterator it;
 
 public:
     AnalyseurSyntaxique();
     virtual ~AnalyseurSyntaxique();
-    Requete& creerRequete(list<string>);
-
+    Requete& creerRequete(list<string>) throw (ErreurSyntaxe);
 };
 
 }
