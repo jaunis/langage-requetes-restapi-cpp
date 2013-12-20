@@ -11,9 +11,11 @@ MAIN = bin/interpreteur.o
 OBJECTS = bin/main/AnalyseurLexical.o
 OBJECTS += bin/main/AnalyseurSyntaxique.o
 OBJECTS += bin/main/Requete.o
+OBJECTS += bin/main/UtilitaireHttp.o
 
 TEST_OBJECTS = bin/test/test_analyseur_lexical.o
 TEST_OBJECTS += bin/test/test_analyseur_syntaxique.o
+TEST_OBJECTS += bin/test/test_utilitaire_http.o
 TEST_OBJECTS += bin/test/tests.o
 
 all: $(OBJECTS) $(MAIN)

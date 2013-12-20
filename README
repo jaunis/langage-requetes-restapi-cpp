@@ -1,3 +1,3 @@
 Prérequis
 =========
-tests unitaires: libboost-dev (suggestion : plugin Eclipse CUTE)
+tests unitaires: libboost-dev (suggestion : plugin Eclipse CUTE) et turtle 1.2.4 (télécharger sur sourceforge, dézipper dans le répertoire et déplacer include/turtle à la racine)
