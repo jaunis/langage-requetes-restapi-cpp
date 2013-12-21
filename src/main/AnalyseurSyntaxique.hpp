@@ -10,13 +10,14 @@ using namespace std;
 
 namespace analyseurs {
 class ErreurSyntaxe : public exception {
+private:
+    string message;
+
 public:
     ErreurSyntaxe(string message, string complement="");
     virtual ~ErreurSyntaxe() throw ();
     virtual const char * what() const throw ();
 
-private:
-    string message;
 };
 
 class AnalyseurSyntaxique {

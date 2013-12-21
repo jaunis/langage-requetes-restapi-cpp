@@ -27,3 +27,37 @@ BOOST_AUTO_TEST_CASE(test_extraire_resultat) {
     }
     BOOST_CHECK(i == 2);
 }
+
+BOOST_AUTO_TEST_CASE(test_json_errone_tableau) {
+    AnalyseurJson analyseur;
+    string json =
+            "[{\"champ1\": \"valeur1\", \"champ2\": 2}, {\"champ1\": \"valeur001\", \"champ3\": 3, \"champ4\": null}]";
+    BOOST_CHECK_THROW(analyseur.extraireResultat(json), JsonInvalide);
+}
+
+BOOST_AUTO_TEST_CASE(test_json_errone_items) {
+    AnalyseurJson analyseur;
+    string json =
+            "{\"truc\": [{\"champ1\": \"valeur1\", \"champ2\": 2}, {\"champ1\": \"valeur001\", \"champ3\": 3, \"champ4\": null}]}";
+    BOOST_CHECK_THROW(analyseur.extraireResultat(json), JsonInvalide);
+}
+
+BOOST_AUTO_TEST_CASE(test_json_mauvaise_syntaxe) {
+    AnalyseurJson analyseur;
+    string json =
+            "{\"items\": ({\"champ1\": \"valeur1\", \"champ2\": 2}, {\"champ1\": \"valeur001\", \"champ3\": 3, \"champ4\": null}]}";
+    BOOST_CHECK_THROW(analyseur.extraireResultat(json), JsonInvalide);
+}
+
+BOOST_AUTO_TEST_CASE(test_json_errone_mauvais_items) {
+    AnalyseurJson analyseur;
+    string json =
+            "{\"items\": {\"champ1\": \"valeur1\", \"champ2\": 2}}";
+    BOOST_CHECK_THROW(analyseur.extraireResultat(json), JsonInvalide);
+}
+
+BOOST_AUTO_TEST_CASE(test_json_tableau_items_invalide) {
+    AnalyseurJson analyseur;
+    string json = "{\"items\": [\"champ1\", \"valeur1\"]}";
+    BOOST_CHECK_THROW(analyseur.extraireResultat(json), JsonInvalide);
+}
