@@ -1,4 +1,6 @@
 #include "AnalyseurJson.hpp"
+#include <json/json.h>
+#include <json/json_tokener.h>
 
 AnalyseurJson::AnalyseurJson()
 {
@@ -11,6 +13,25 @@ AnalyseurJson::~AnalyseurJson()
     // TODO Auto-generated destructor stub
 }
 
-Resultat& AnalyseurJson::extraireResultat(string) {
-    return *new Resultat();
+Resultat& AnalyseurJson::extraireResultat(string& json) {
+    Resultat& resultat = *new Resultat();
+    json_object* jobj = json_tokener_parse(json.c_str());
+    json_object* contenu;
+    json_object_object_get_ex(jobj, "items", &contenu);
+    json_object* element;
+    for (int i = 0; i < json_object_array_length(contenu); i++) {
+        element = json_object_array_get_idx(contenu, i);
+        map<string, string> tuple;
+        json_object_object_foreach(element, key, val) {
+            json_type type = json_object_get_type(val);
+            if (type == json_type_double || type == json_type_int || type == json_type_string
+                    || type == json_type_boolean) {
+                tuple.insert(make_pair(string(key), string(json_object_get_string(val))));
+            } else if (type == json_type_null) {
+                tuple.insert(make_pair(string(key), string()));
+            }
+        }
+        resultat.tuples.push_back(tuple);
+    }
+    return resultat;
 }

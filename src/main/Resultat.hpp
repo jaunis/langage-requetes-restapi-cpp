@@ -7,9 +7,12 @@
 
 using namespace std;
 
+class AnalyseurJson;
+
 class Resultat {
 private:
     list<map<string, string> >& tuples;
+    friend AnalyseurJson;
 public:
     Resultat();
     virtual ~Resultat();

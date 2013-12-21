@@ -20,6 +20,7 @@ TEST_OBJECTS = bin/test/test_analyseur_lexical.o
 TEST_OBJECTS += bin/test/test_analyseur_syntaxique.o
 TEST_OBJECTS += bin/test/test_utilitaire_http.o
 TEST_OBJECTS += bin/test/test_executeur.o
+TEST_OBJECTS += bin/test/test_analyseur_json.o
 TEST_OBJECTS += bin/test/tests.o
 
 all: $(OBJECTS) $(MAIN)

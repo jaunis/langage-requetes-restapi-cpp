@@ -10,7 +10,7 @@ class AnalyseurJson {
 public:
     AnalyseurJson();
     virtual ~AnalyseurJson();
-    virtual Resultat& extraireResultat(string);
+    virtual Resultat& extraireResultat(string&);
 };
 
 #endif

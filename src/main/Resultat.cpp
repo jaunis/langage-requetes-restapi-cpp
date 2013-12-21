@@ -12,3 +12,6 @@ Resultat::~Resultat()
     // TODO Auto-generated destructor stub
 }
 
+list<map<string, string> >& Resultat::accTuples() {
+    return tuples;
+}
