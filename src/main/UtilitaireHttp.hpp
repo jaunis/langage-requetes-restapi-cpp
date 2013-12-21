@@ -20,10 +20,12 @@ private:
     string baseUrl;
     CURL* curl;
     Rappel& rappel;
+protected:
+    UtilitaireHttp();
 public:
     UtilitaireHttp(string serveur, string port);
     virtual ~UtilitaireHttp();
-    string& executerGet(string url);
+    virtual string& executerGet(string url);
 };
 
 

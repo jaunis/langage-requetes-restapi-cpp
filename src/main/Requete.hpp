@@ -23,6 +23,7 @@ public:
     Requete();
     virtual ~Requete();
     string accCible();
+    void mutCible(string cible);
     list<string>& accProjection();
 };
 

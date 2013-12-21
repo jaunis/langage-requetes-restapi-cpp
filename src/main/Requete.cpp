@@ -25,3 +25,7 @@ string Requete::accCible() {
 list<string>& Requete::accProjection() {
     return projection;
 }
+
+void Requete::mutCible(string cible) {
+    this->cible = cible;
+}

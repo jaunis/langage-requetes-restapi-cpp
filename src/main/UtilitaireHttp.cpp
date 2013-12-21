@@ -1,10 +1,13 @@
 #include "UtilitaireHttp.hpp"
+#include <stddef.h>
 
 UtilitaireHttp::UtilitaireHttp(string serveur, string port): rappel(*new Rappel()) {
     baseUrl = string("http://").append(serveur).append(":").append(port).append("/");
     curl = curl_easy_init();
     curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, &rappel);
 }
+
+UtilitaireHttp::UtilitaireHttp(): rappel(*new Rappel()) {}
 
 UtilitaireHttp::~UtilitaireHttp() {}
 

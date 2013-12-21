@@ -14,11 +14,12 @@ OBJECTS += bin/main/Requete.o
 OBJECTS += bin/main/Resultat.o
 OBJECTS += bin/main/Executeur.o
 OBJECTS += bin/main/UtilitaireHttp.o
+OBJECTS += bin/main/AnalyseurJson.o
 
 TEST_OBJECTS = bin/test/test_analyseur_lexical.o
 TEST_OBJECTS += bin/test/test_analyseur_syntaxique.o
 TEST_OBJECTS += bin/test/test_utilitaire_http.o
-TEST_OBJECTS += bin/test/test_interpreteur.o
+TEST_OBJECTS += bin/test/test_executeur.o
 TEST_OBJECTS += bin/test/tests.o
 
 all: $(OBJECTS) $(MAIN)
@@ -30,6 +31,8 @@ test: $(OBJECTS) $(TEST_OBJECTS)
 clean:
 	rm -f bin/**/*.o bin/tests bin/interpreteur
 
-bin/%.o: src/%.cpp
+bin/main/%.o: src/main/%.cpp src/main/%.hpp
 	g++ -c $< -o $@ $(CFLAGS) $(TESTFLAGS)
 
+bin/test/%.o: src/test/%.cpp
+	g++ -c $< -o $@ $(CFLAGS) $(TESTFLAGS)
