@@ -2,10 +2,9 @@
 
 using namespace std;
 
-Resultat::Resultat(): tuples(*new list<map<string, string> >()){
-    // TODO Auto-generated constructor stub
+Resultat::Resultat(): tuples(*new list<map<string, string> >()){}
 
-}
+Resultat::Resultat(list<map<string, string> > tuples) : tuples(tuples) {}
 
 Resultat::~Resultat()
 {
@@ -14,4 +13,9 @@ Resultat::~Resultat()
 
 list<map<string, string> >& Resultat::accTuples() {
     return tuples;
+}
+
+void Resultat::mutTuples(list<map<string, string> >& tuples) {
+    this->tuples.clear();
+    this->tuples.merge(tuples);
 }

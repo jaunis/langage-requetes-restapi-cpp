@@ -24,6 +24,7 @@ TEST_OBJECTS += bin/test/test_utilitaire_http.o
 TEST_OBJECTS += bin/test/test_executeur.o
 TEST_OBJECTS += bin/test/test_analyseur_json.o
 TEST_OBJECTS += bin/test/test_interpreteur.o
+TEST_OBJECTS += bin/test/test_afficheur.o
 TEST_OBJECTS += bin/test/tests.o
 
 all: $(OBJECTS) $(MAIN)

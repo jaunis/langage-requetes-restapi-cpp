@@ -15,8 +15,10 @@ private:
     friend AnalyseurJson;
 public:
     Resultat();
+    Resultat(list<map<string, string> > tuples);
     virtual ~Resultat();
     list<map<string, string> >& accTuples();
+    void mutTuples(list<map<string, string> >& tuples);
 };
 
 #endif
