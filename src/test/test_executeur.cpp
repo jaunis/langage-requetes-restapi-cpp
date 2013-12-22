@@ -24,7 +24,7 @@ BOOST_AUTO_TEST_CASE(test_executer) {
     Requete requete;
     requete.mutCible("devices");
     Resultat& attendu = *new Resultat();
-    MOCK_EXPECT(utilitaire.executerGet).once().with("/1.1/devices").returns("{}");
+    MOCK_EXPECT(utilitaire.executerGet).once().with("devices").returns("{}");
     MOCK_EXPECT(analyseur.extraireResultat).once().with("{}").returns(attendu);
 
     executeur.executer(requete);

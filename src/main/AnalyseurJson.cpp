@@ -13,7 +13,7 @@ AnalyseurJson::~AnalyseurJson()
     // TODO Auto-generated destructor stub
 }
 
-Resultat& AnalyseurJson::extraireResultat(string& json) throw (JsonInvalide){
+Resultat& AnalyseurJson::extraireResultat(string& json) {
     Resultat& resultat = *new Resultat();
     json_object* jobj = json_tokener_parse(json.c_str());
     json_object* contenu;

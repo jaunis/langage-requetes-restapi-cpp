@@ -1,10 +1,10 @@
 DEBUG=yes
 ifeq ($(DEBUG), yes)
-    CFLAGS=-lcurl -ljson -g -I include
+    CFLAGS=-lcurl -ljson -g
 else
-    CFLAGS=-lcurl -ljson -I include
+    CFLAGS=-lcurl -ljson
 endif
-TESTFLAGS=
+TESTFLAGS=-I include
 
 MAIN = bin/interpreteur.o
 

@@ -9,6 +9,6 @@ Executeur::~Executeur()
 }
 
 Resultat& Executeur::executer(Requete& requete) {
-    string& json = utilitaire.executerGet("/1.1/devices");
+    string& json = utilitaire.executerGet(requete.accCible());
     return analyseur.extraireResultat(json);
 }

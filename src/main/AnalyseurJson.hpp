@@ -23,7 +23,7 @@ private:
 public:
     AnalyseurJson();
     virtual ~AnalyseurJson();
-    virtual Resultat& extraireResultat(string&) throw (JsonInvalide);
+    virtual Resultat& extraireResultat(string&);
 };
 
 #endif
