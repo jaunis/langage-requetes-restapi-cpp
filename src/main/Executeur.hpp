@@ -10,10 +10,12 @@ class Executeur {
 private:
     AnalyseurJson& analyseur;
     UtilitaireHttp& utilitaire;
+protected:
+    Executeur();
 public:
     Executeur(UtilitaireHttp&, AnalyseurJson&);
     virtual ~Executeur();
-    Resultat& executer(Requete&);
+    virtual Resultat& executer(Requete&);
 };
 
 #endif

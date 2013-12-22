@@ -29,7 +29,7 @@ private:
 public:
     AnalyseurSyntaxique();
     virtual ~AnalyseurSyntaxique();
-    Requete& creerRequete(list<string>) throw (ErreurSyntaxe);
+    virtual Requete& creerRequete(list<string>);
 };
 
 }

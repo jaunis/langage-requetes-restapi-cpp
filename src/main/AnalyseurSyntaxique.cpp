@@ -19,7 +19,7 @@ AnalyseurSyntaxique::~AnalyseurSyntaxique() {
     // TODO Auto-generated destructor stub
 }
 
-Requete& AnalyseurSyntaxique::creerRequete(list<string> lexemes) throw(ErreurSyntaxe) {
+Requete& AnalyseurSyntaxique::creerRequete(list<string> lexemes) {
     Requete& requete = *new Requete();
     for (list<string>::iterator it = lexemes.begin(); it != lexemes.end(); it++) {
         if (etat == DEBUT) {

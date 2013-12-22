@@ -19,7 +19,7 @@ class AnalyseurLexical {
 public:
     AnalyseurLexical();
     virtual ~AnalyseurLexical();
-    list<string>& diviser_en_lexemes(string);
+    virtual list<string>& diviser_en_lexemes(string);
 };
 
 }
