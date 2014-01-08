@@ -21,5 +21,5 @@ void Interpreteur::traiterRequete(string requete) {
     list<string>& lexemes = analyseurLex.diviser_en_lexemes(requete);
     Requete& requeteObj = analyseurSynt.creerRequete(lexemes);
     Resultat& resultat = executeur.executer(requeteObj);
-    afficheur.afficher(resultat);
+    afficheur.afficher(resultat, requeteObj.accProjection());
 }

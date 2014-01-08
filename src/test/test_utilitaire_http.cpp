@@ -7,9 +7,9 @@
 
 using namespace std;
 
-BOOST_AUTO_TEST_CASE(test_rappel) {
-    Rappel rappel;
-    string tampon = "petit texte à ajouter";
-    rappel(tampon.c_str(), 1, (int)tampon.size(), (void*) NULL);
-    BOOST_CHECK_EQUAL(tampon, rappel.accContenu());
-}
+//BOOST_AUTO_TEST_CASE(test_rappel) {
+//    Rappel rappel;
+//    string tampon = "petit texte à ajouter";
+//    rappel(tampon.c_str(), 1, (int)tampon.size(), (void*) NULL);
+//    BOOST_CHECK_EQUAL(tampon, rappel.accContenu());
+//}

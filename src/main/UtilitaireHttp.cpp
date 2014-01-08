@@ -1,30 +1,39 @@
 #include "UtilitaireHttp.hpp"
 #include <stddef.h>
+#include <iostream>
+#include <string>
 
-UtilitaireHttp::UtilitaireHttp(string serveur, string port): rappel(*new Rappel()) {
-    baseUrl = string("http://").append(serveur).append(":").append(port).append("/1.1/");
-    curl = curl_easy_init();
-    curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, &rappel);
+size_t function( char *ptr, size_t size, size_t nmemb, Conteneur *conteneur) {
+    conteneur->ajouter(*new string(ptr));
+    return size * nmemb;
 }
 
-UtilitaireHttp::UtilitaireHttp(): rappel(*new Rappel()) {}
+
+UtilitaireHttp::UtilitaireHttp(string serveur, string port): conteneur(*new Conteneur()) {
+    baseUrl = string("http://").append(serveur).append(":").append(port).append("/1.1/");
+    curl = curl_easy_init();
+    curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, function);
+    curl_easy_setopt(curl, CURLOPT_WRITEDATA, &conteneur);
+}
+
+UtilitaireHttp::UtilitaireHttp(): conteneur(*new Conteneur()) {}
 
 UtilitaireHttp::~UtilitaireHttp() {}
 
 string& UtilitaireHttp::executerGet(string url) {
     curl_easy_setopt(curl, CURLOPT_URL, baseUrl.append(url).c_str());
     curl_easy_perform(curl);
-    return rappel.accContenu();
+    return conteneur.accContenu();
 }
 
-Rappel::Rappel() {
+Conteneur::Conteneur() {
     contenu = "";
 }
 
-void Rappel::operator ()(const char* tampon, size_t taille, size_t nb_membres, void* pointeur) {
-    contenu = contenu.append(tampon, nb_membres);
+string& Conteneur::accContenu() {
+    return contenu;
 }
 
-string& Rappel::accContenu() {
-    return contenu;
+void Conteneur::ajouter(string& s) {
+    contenu = contenu.append(s);
 }

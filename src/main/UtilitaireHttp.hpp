@@ -6,20 +6,25 @@
 
 using namespace std;
 
-class Rappel {
+
+class Conteneur {
 private:
     string contenu;
 public:
-    Rappel();
-    void operator()(const char* tampon, size_t taille, size_t nb_membres, void* pointeur);
+    Conteneur();
     string& accContenu();
+    void ajouter(string& s);
 };
+
+extern "C" {
+    size_t function( char *ptr, size_t size, size_t nmemb, Conteneur *userdata);
+}
 
 class UtilitaireHttp {
 private:
     string baseUrl;
     CURL* curl;
-    Rappel& rappel;
+    Conteneur& conteneur;
 protected:
     UtilitaireHttp();
 public:

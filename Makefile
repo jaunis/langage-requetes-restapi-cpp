@@ -36,8 +36,12 @@ test: $(OBJECTS) $(TEST_OBJECTS)
 clean:
 	rm -f bin/**/*.o bin/tests bin/interpreteur
 
+bin/main/main.o: src/main/main.cpp
+	g++ -c $< -o $@ $(CFLAGS) $(TESTFLAGS)
+
 bin/main/%.o: src/main/%.cpp src/main/%.hpp
 	g++ -c $< -o $@ $(CFLAGS) $(TESTFLAGS)
+	
 
 bin/test/%.o: src/test/%.cpp
 	g++ -c $< -o $@ $(CFLAGS) $(TESTFLAGS)

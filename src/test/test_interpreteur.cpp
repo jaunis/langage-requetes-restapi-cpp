@@ -19,7 +19,7 @@ MOCK_BASE_CLASS( MockExecuteur, Executeur) {
 };
 
 MOCK_BASE_CLASS( MockAfficheur, Afficheur) {
-    MOCK_METHOD(afficher, 1)
+    MOCK_METHOD(afficher, 2)
 };
 
 BOOST_AUTO_TEST_CASE(test_traiter_requete) {
